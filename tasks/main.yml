@@ -1,0 +1,14 @@
+# role: trw.docker
+---
+
+- name: "Install docker-compose Bash Completion"
+  get_url:
+    url: https://raw.githubusercontent.com/docker/compose/{{ docker_compose_version }}/contrib/completion/bash/docker-compose
+    dest: /etc/bash_completion.d/docker-compose
+    mode: 0644
+
+- name: "Setup Docker-Compose Basedir"
+  file:
+    path: /srv/docker/
+    state: directory
+
